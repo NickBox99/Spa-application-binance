@@ -48,15 +48,19 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 body{
-  margin: 0;
-  background-color: rgb(177, 177, 177);
+  font-size: 14px;
 }
 
 .symbol{
   padding: 5px;
   font-size: 20px;
   border: 1px solid black;
+}
+@media screen and (max-device-width: 370px){
+  body{
+    font-size: 11px;
+  }
 }
 </style>
