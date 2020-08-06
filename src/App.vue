@@ -1,28 +1,62 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Navigation
+    :navData="navData"
+    @changeTab="(tab) => this.navData.nowTab = tab"
+    />
+    <div class="symbol"
+    @symbol2="(symbol) => console.log(symbol)"
+    >Symbol: {{ symbol }}</div>
+
+    <keep-alive> 
+      <component :is="this.navData.nowTab" :symbol="symbol" :limit="limit" ></component>
+    </keep-alive>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import Navigation from './components/navigation'
+import FirstPage from './components/firstPage'
+import SecondPage from './components/secondPage'
 
 export default {
   name: 'App',
+  data: () => ({
+    navData: {
+      allTabs: ["FirstPage", "SecondPage"],
+      nowTab: "FirstPage",
+    },
+    symbol: "BTCUSDT",
+    limit: 500
+  }),
   components: {
-    HelloWorld
+    Navigation,
+    FirstPage,
+    SecondPage
+  },
+  methods:{
+    changeTabs(tab){
+      this.nowTab = tab;
+    }
+  },
+  async created(){
+    this.$eventBus.$on("symbol",  (symbol) => {
+      this.symbol = symbol;
+    });
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+body{
+  margin: 0;
+  background-color: rgb(177, 177, 177);
+}
+
+.symbol{
+  padding: 5px;
+  font-size: 20px;
+  border: 1px solid black;
 }
 </style>
