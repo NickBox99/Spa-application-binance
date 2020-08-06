@@ -47,17 +47,13 @@ export default {
 .table__row__td {
   border: 1px solid grey;
   padding: 0.65rem;
-  /* padding: 10px; */
 }
-@media screen and (max-device-width: 840px) {
-  /* .table__row__td {
-    padding: 5px 0 5px 10px;
-  } */
+@media screen and (max-width: 840px) {
   .hide-mobile {
     display: none;
   }
 }
-@media screen and (max-device-width: 450px){
+@media screen and (max-width: 450px){
   .table__row__td,
   .table__row__th {
     padding: 0.3rem 0 0.3rem 0.3rem;
