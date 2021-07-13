@@ -1,25 +1,5 @@
-# spa-application-binance
+# Тестовое задание: Отслеживание изменения цены в реальном времени
 
-## Project setup
 ```
-npm install
+Ссылка на GitHub Pages - https://nickbox99.github.io/Spa-application-binance/
 ```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-# Spa-application-binance
